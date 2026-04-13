@@ -1,0 +1,6 @@
+ def sair(self):
+        self.tela.destroy()
+        #FECHA A CONEXÃO COM SQLITE
+        self.conn.close()
+        self.tela.destroy()
+        sys.exit()

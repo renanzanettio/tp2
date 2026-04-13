@@ -1,0 +1,30 @@
+#PARA SALVAR OS DADOS NO BD SQLITE
+def salvar(self):
+
+        try:
+            self.cursor.execute("""
+            INSERT INTO pessoas (
+                codigo, nome, idade, sexo, altura, peso,
+                cidade, data_nascimento, data_atualizacao,
+                data_cadastro, descricao
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                self.txt_codigo.get(),
+                self.txt_nome.get(),
+                self.txt_idade.get(),
+                self.var.get(),
+                self.txt_altura.get(),
+                self.txt_peso.get(),
+                self.cmb_cidade.get(),
+                self.txt_data_nascimento.get(),
+                self.txt_data_atualizacao.get(),
+                self.txt_data_cadastro.get(),
+                self.txt_descricao.get()
+            ))
+
+            self.conn.commit()
+
+            Label(self.tela, text="Dados salvos com sucesso!", fg="green").place(x=20, y=320)
+
+        except Exception as e:
+            Label(self.tela, text=f"Erro: {e}", fg="red").place(x=20, y=320)

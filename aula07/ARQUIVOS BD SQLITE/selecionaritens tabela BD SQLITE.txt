@@ -1,0 +1,16 @@
+    #SELECIONAR ITEMS DA TABELA BANCO DE DADOS
+    def selecionar_item(self, event):
+        item = self.tree.selection()[0]
+        dados = self.tree.item(item, "values")
+
+        self.txt_codigo.delete(0, END)
+        self.txt_codigo.insert(0, dados[0])
+
+        self.txt_nome.delete(0, END)
+        self.txt_nome.insert(0, dados[1])
+
+        self.txt_idade.delete(0, END)
+        self.txt_idade.insert(0, dados[2])
+
+        self.var.set(dados[3])
+        self.cmb_cidade.set(dados[4])

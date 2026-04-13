@@ -1,0 +1,6 @@
+    #EXCLUIR DADOS BANCO DE DADOS
+    def excluir(self):
+        self.cursor.execute("DELETE FROM pessoas WHERE codigo=?", (self.txt_codigo.get(),))
+        self.conn.commit()
+        self.consultar_dados()
+        Label(self.tela, text="Dados excluidos com sucesso!", fg="green").place(x=20, y=320)
