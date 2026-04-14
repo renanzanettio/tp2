@@ -1,8 +1,0 @@
- #CONSULTAR DADOS SQLITE
-    def consultar_dados(self):
-       for item in self.tree.get_children():
-           self.tree.delete(item)
-
-       self.cursor.execute("SELECT codigo, nome, idade, sexo, cidade FROM pessoas")
-       for row in self.cursor.fetchall():
-           self.tree.insert("", "end", values=row)
